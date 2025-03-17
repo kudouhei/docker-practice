@@ -1,0 +1,1 @@
+### Full App Lifecycle: Dev, Build and Deploy With a Single Compose Design

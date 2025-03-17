@@ -1,0 +1,21 @@
+version: '3.9'  
+
+services:
+
+  drupal:
+    image: custom-drupal
+    build: .
+    ports:
+      - "80:80"
+
+  postgres:
+    environment:
+      - POSTGRES_PASSWORD_FILE=/run/secrets/psql-demo-password
+    secrets:
+      - psql-demo-password
+    volumes:
+      - ./sample-data:/var/lib/postgresql/data
+
+secrets:
+  psql-demo-password:
+    file: ./psql-demo-password.txt
